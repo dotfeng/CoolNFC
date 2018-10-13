@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="5dp"
+    android:background="@drawable/layout_background_section" >
+
+    <TextView
+        android:id="@+id/pwd_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Select_Password"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_pwds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/pwd_header"
+        android:layout_marginTop="12dp"  >
+
+        <Button
+            android:id="@+id/authPWD1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:contentDescription="@string/nxp"
+            android:text="@string/Password_1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/authPWD2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:contentDescription="@string/nxp"
+            android:text="@string/Password_2"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/authPWD3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            android:contentDescription="@string/nxp"
+            android:text="@string/Password_3"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/auth_status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Auth_Status"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/ll_pwds" />
+    
+    <TextView
+        android:id="@+id/auth_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Auth_disabled"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_below="@id/auth_status_text"
+        android:textStyle="bold" />
+</RelativeLayout>

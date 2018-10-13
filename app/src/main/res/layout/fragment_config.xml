@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_background_section"
+        android:orientation="vertical"
+        android:layout_margin="5dp" >
+
+        <LinearLayout
+            android:id="@+id/layoutImage1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:weightSum="2"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:id="@+id/readMemory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/nxp"
+                android:src="@mipmap/table" />
+
+            <ImageView
+                android:id="@+id/resetMemory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/nxp"
+                android:src="@mipmap/reset" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutText1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:weightSum="2"  >
+
+            <TextView
+                style="@style/home_icon_text"
+                android:text="@string/config_read"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                style="@style/home_icon_text"
+                android:text="@string/config_reset"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutImage2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:weightSum="2"
+            android:layout_marginTop="20dp" >
+
+            <ImageView
+                android:id="@+id/configSessionRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/nxp"
+                android:src="@mipmap/maintenance" />
+
+            <ImageView
+                android:id="@+id/configConfigRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/nxp"
+                android:src="@mipmap/update" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutText2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                style="@style/home_icon_text"
+                android:text="@string/config_session"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                style="@style/home_icon_text"
+                android:text="@string/config_config"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
