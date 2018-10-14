@@ -45,6 +45,7 @@ import cn.edu.zju.coolnfc.exceptions.NotPlusTagException;
 import cn.edu.zju.coolnfc.fragments.LedFragment;
 import cn.edu.zju.coolnfc.fragments.NdefFragment;
 import cn.edu.zju.coolnfc.fragments.SpeedTestFragment;
+import cn.edu.zju.coolnfc.fragments.TestFragment;
 import cn.edu.zju.coolnfc.listeners.WriteEEPROMListener;
 import cn.edu.zju.coolnfc.listeners.WriteSRAMListener;
 
@@ -948,6 +949,16 @@ public class Ntag_I2C_Demo implements WriteEEPROMListener, WriteSRAMListener {
 					} else {
 						dataTx[reader.getSRAMSize() - 10] = 0x00;
 					}
+
+					// add by nikolajohn 20181014
+                    if(TestFragment.isLCDEnabled()) {
+                        Log.d("nikolajohn","E");
+                        dataTx[reader.getSRAMSize() - 10] = 'E';
+                    } else {
+                        Log.d("nikolajohn","0x00");
+                        dataTx[reader.getSRAMSize() - 10] = 0x00;
+                    }
+
 					// NDEF Scrolling activation
 					if(LedFragment.isScrollEnabled()) {
 						dataTx[reader.getSRAMSize() - 11] = 'E';
@@ -2282,9 +2293,8 @@ public class Ntag_I2C_Demo implements WriteEEPROMListener, WriteSRAMListener {
 
 	/**
 	 * Creates a Bluetooth Secure Simple Pairing Message.
-	 * 
-	 * @param
-	 *            Bluetooth MAC Address to Write
+	 *
+	 *
 	 * @return NDEF Message
 	 */
 	private NdefMessage createNdefBSSPMessage() {

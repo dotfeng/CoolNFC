@@ -31,6 +31,7 @@ import cn.edu.zju.coolnfc.fragments.ConfigFragment;
 import cn.edu.zju.coolnfc.fragments.LedFragment;
 import cn.edu.zju.coolnfc.fragments.NdefFragment;
 import cn.edu.zju.coolnfc.fragments.SpeedTestFragment;
+import cn.edu.zju.coolnfc.fragments.TestFragment;
 import cn.edu.zju.coolnfc.reader.Ntag_I2C_Demo;
 
 public class MainActivity extends FragmentActivity {
@@ -87,6 +88,10 @@ public class MainActivity extends FragmentActivity {
 		mTabHost.setup();
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mTabsAdapter = new TabsAdapter(this, mTabHost, mViewPager);
+		mTabsAdapter.addTab(
+				mTabHost.newTabSpec("test").setIndicator(
+						"Test"), TestFragment.class, null);
+
 		mTabsAdapter.addTab(
 				mTabHost.newTabSpec("leds").setIndicator(
 						getString(R.string.leds)), LedFragment.class, null);
@@ -295,6 +300,31 @@ public class MainActivity extends FragmentActivity {
 	private void launchDemo(String currTab) {
 		if(mAuthStatus == AuthActivity.AuthStatus.Authenticated.getValue()) {
 			demo.Auth(mPassword, AuthActivity.AuthStatus.Protected_RW.getValue());
+		}
+
+		// ===========================================================================
+		// My Test
+		// ===========================================================================
+		if (currTab.equalsIgnoreCase("test")) {
+			// This demo is available even if the product is protected
+			// as long as the SRAM is unprotected
+			if(mAuthStatus == AuthActivity.AuthStatus.Disabled.getValue()
+					|| mAuthStatus == AuthActivity.AuthStatus.Unprotected.getValue()
+					|| mAuthStatus == AuthActivity.AuthStatus.Authenticated.getValue()
+					|| mAuthStatus == AuthActivity.AuthStatus.Protected_W.getValue()
+					|| mAuthStatus == AuthActivity.AuthStatus.Protected_RW.getValue() ) {
+				try {
+					// if (LedFragment.getChosen()) {
+					demo.LED();
+				} catch (Exception e) {
+					e.printStackTrace();
+					LedFragment.setAnswer(getString(R.string.Tag_lost));
+				}
+			} else {
+				Toast.makeText(getApplicationContext(), "NTAG I2C Plus memory is protected",
+						Toast.LENGTH_LONG).show();
+				showAuthDialog();
+			}
 		}
 		
 		// ===========================================================================
