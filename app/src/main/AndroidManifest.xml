@@ -2,48 +2,87 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.zju.coolnfc">
 
-
     <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- <uses-features android:name="android.hardware.camera" /> -->
-
     <application
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
-        <activity android:name="cn.edu.zju.coolnfc.activities.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" android:exported="true" android:launchMode="singleTask">
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+
             <!-- For future use -->
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="http"
-                    android:host="www.nxp.com"
-                    android:pathPrefix="/products/identification_and_security/smart_label_and_tag_ics/ntag/series/NT3H1101_NT3H1201.html" />
+
+                <data
+                    android:host="www.zju.edu.cn"
+                    android:pathPrefix="/products/identification_and_security/smart_label_and_tag_ics/ntag/series/NT3H1101_NT3H1201.html"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
 
-        <activity android:name="cn.edu.zju.coolnfc.activities.SplashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" >
             <!-- android:clearTaskOnLaunch="true"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="cn.edu.zju.coolnfc.activities.RegisterSessionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.RegisterConfigActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.ReadMemoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.ResetMemoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.VersionInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.HelpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.DebugActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.FlashMemoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
-        <activity android:name="cn.edu.zju.coolnfc.activities.AuthActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.RegisterSessionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.RegisterConfigActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.ReadMemoryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.ResetMemoryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.VersionInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.HelpActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.DebugActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.FlashMemoryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.AuthActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
     </application>
+
 </manifest>
